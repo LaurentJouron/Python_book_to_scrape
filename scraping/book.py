@@ -2,7 +2,10 @@ from bs4 import BeautifulSoup
 import requests
 
 from category import Category
+from files import File
 from constants import WEBSITE
+
+files = File()
 
 
 class Book(Category):
@@ -15,9 +18,6 @@ class Book(Category):
             book.find("div", class_="image_container").find("a").get("href")
         )
         return (WEBSITE + search_link).replace("../../..", "catalogue")
-
-    def _get_price(self, book):
-        return book.find("p", class_="price_color").text
 
     def _get_image_link(self, book):
         link = book.find("img", class_="thumbnail")["src"]
@@ -37,7 +37,7 @@ class Book(Category):
     def get_information(self):
         books = []
         categories = self.get_categories()
-        for category_name, url in categories:
+        for name, url in categories:
             exist = True
             while exist:
                 response = requests.get(url)
@@ -49,15 +49,8 @@ class Book(Category):
                     ):
                         title = self._get_title(book=book)
                         links = self._get_link(book=book)
-                        price = self._get_price(book=book)
                         image = self._get_image_link(book=book)
-                        books.append((title, links, price, image))
-                        # files = File()
-                        # files.save_image(
-                        #     category_name=category_name,
-                        #     title=title,
-                        #     image=image,
-                        # )
+                        books.append((name, url, title, links, image))
                     next_button = self._get_next_button(soup=soup, url=url)
                     if next_button:
                         url = next_button
@@ -65,6 +58,6 @@ class Book(Category):
                         exist = False
 
                 except Exception as e:
-                    print(f"Erreur de la catégorie {category_name}: {e}")
+                    print(f"Erreur de la catégorie {name}: {e}")
                     exist = False
         return books

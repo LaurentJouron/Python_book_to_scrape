@@ -1,46 +1,45 @@
-import os
 import requests
 import csv
 from folder import Folder
+from constants import MEDIA, CSV
 
 
 class File(Folder):
     def make_csv(self, category, headers):
         category = category.replace(" ", "_")
-        folder = self.make_child(category)
-        if folder:
+
+        # Dossier CSV pour chaque catégorie
+        csv_folder = self.make_child(folder=CSV, category=category)
+        if csv_folder:
             try:
-                csv_name = f"{folder}/{category}.csv"
-                with open(csv_name, "w", newline="", encoding="utf8") as f:
-                    csv_writer = csv.writer(f)
+                csv_name = f"{csv_folder}/{category}.csv"
+                f = open(csv_name, "a", newline="", encoding="utf8")
+                csv_writer = csv.writer(f)
+
+                # Si le fichier est vide, écrire les headers
+                if f.tell() == 0:
                     csv_writer.writerow(headers)
-                return True
+
+                # Retourne le fichier ouvert et le writer
+                return (csv_writer, f)
             except Exception as e:
                 print(f"Erreur lors de la création du fichier CSV : {e}")
+                return None, None
+        return None, None
+
+    def save_image(self, category, image, title):
+        category = category.replace(" ", "_")
+        # Dossier Media pour chaque catégorie
+        media_folder = self.make_child(folder=MEDIA, category=category)
+        if media_folder:
+            try:
+                response = requests.get(image, allow_redirects=True)
+                image_name = f"{media_folder}/{title.replace(' ', '_')}.jpg"
+                with open(image_name, "wb") as f:
+                    f.write(response.content)
+                print(f"Image sauvegardée dans : {image_name}")
+                return True
+            except Exception as e:
+                print(f"Erreur lors de la sauvegarde de l'image : {e}")
                 return False
         return False
-
-    def save_image(self, category_name, title, image):
-        category_name = category_name.replace(" ", "_")
-        title = title.replace(" ", "_")
-
-        # Créer un dossier catégorie à l'intérieur de MEDIA
-        category_folder = self.make_child(category_name)
-
-        if category_folder:
-            response = requests.get(image, allow_redirects=True)
-            if response.status_code == 200:
-                # Chemin complet de l'image dans le dossier catégorie
-                image_path = os.path.join(category_folder, f"{title}.jpg")
-                try:
-                    with open(image_path, "wb") as f:
-                        f.write(response.content)
-                    print(f"Image enregistrée : {image_path}")
-                except Exception as e:
-                    print(f"Erreur lors de l'enregistrement de l'image : {e}")
-            else:
-                print(
-                    f"Erreur de téléchargement de l'image : {response.status_code}"
-                )
-        else:
-            print("Erreur : Impossible de créer le dossier catégorie.")

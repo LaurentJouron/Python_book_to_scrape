@@ -17,6 +17,7 @@ you try to manually track the prices of used books on your competitors' websites
 cope with it: there are too many books and too many online bookstores ! You and your team decided to automate this
 laborious task via a program (a scraper) developed in Python, able to extract price information
 from other online libraries.
+
 ___________
 <h1 align="center">Books Online</h1>
 
@@ -24,6 +25,7 @@ ___________
 Book-toScrape.com. Scraping is a method of extracting data to analyze information.*
 
 https://books.toscrape.com/
+
 ___________
 <h1 align="center">Purpose of the application</h1>
 
@@ -58,6 +60,7 @@ ___________
   * available_in_stock
   * number_of_review
   * synopsis
+
 ___________
 <h1 align="center">Library</h1>
 
@@ -97,6 +100,8 @@ We used 4 different libraries for this project, here are the explanatory documen
 </table>
 
 ___________
+<h1 align="center">Installation and use</h1>
+
 * To start you must clone the project with the following url :
   * ``git clone https://github.com/LaurentJouron/Python_scrape_book_to_scrape.com.git``
 
@@ -110,7 +115,6 @@ ___________
 
 * Click Run to activate the program :
   * ``python scraping``
-___________
 
 As the process progresses, we note the writing of .csv files that allow the analysis of the information of the books .
 
