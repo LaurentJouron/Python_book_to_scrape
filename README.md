@@ -134,8 +134,7 @@ ___________
         <img width="100px"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlW-w7O7g3hQTw8qcIAy3LCRhiHg5tUPfvVg&usqp=CAU" /><br />
         <sub><b>Laurent Jouron</b></sub></a><br />
-      <a href="https://openclassrooms.com/fr/" title="student">🈸</a>
-      <a href="https://github.com/LaurentJouron/Books-online" title="Application Coder">💻</a>
+      <a href="https://github.com/LaurentJouron/Python_scrape_book_to_scrape" title="Application Coder">💻</a>
     </td>
   </tr>
 </table>
