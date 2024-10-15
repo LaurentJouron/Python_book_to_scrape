@@ -103,10 +103,10 @@ ___________
 <h1 align="center">Installation and use</h1>
 
 * To start you must clone the project with the following url :
-  * ``git clone https://github.com/LaurentJouron/Python_scrape_book_to_scrape.com.git``
+  * ``git clone https://github.com/LaurentJouron/Python_scraping_book_to_scrape.com.git``
 
 * There is no virtual environment, so you must create it with the command :
-  * ``cd Python_scrape_book_to_scrape``
+  * ``cd Python_scraping_book_to_scrape``
   * ``mkdir .venv``
   * ``pipenv install``
 
