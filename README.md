@@ -113,7 +113,7 @@ ___________
 * Enable this environment, with the command : 
   * ``pipenv shell``
 
-* Click Run to activate the program :
+* To start the program type this line in your terminal :
   * ``python scraping``
 
 As the process progresses, we note the writing of .csv files that allow the analysis of the information of the books .
