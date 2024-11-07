@@ -131,7 +131,7 @@ ___________
   <tr>
     <td align="center">
       <a href="https://github.com/LaurentJouron">
-        <img width="80px"
+        <img width="100px"
           src="https://github.com/LaurentJouron/LaurentJouron.github.io/blob/main/ressources/img/logo/ikigai.png" /><br />
         <sub><b>Laurent Jouron</b></sub></a><br />
       <a href="https://github.com/LaurentJouron/Python_scrape_book_to_scrape" title="Application Coder">💻</a>
