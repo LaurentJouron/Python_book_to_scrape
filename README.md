@@ -10,6 +10,17 @@
   </a>
 </p>
 
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.laurentjouron.dev/">
+        <img width="100px"
+          src="https://github.com/LaurentJouron/LaurentJouron.github.io/blob/main/ressources/img/logo/ikigai.png" /><br />
+        <sub><b>Laurent Jouron</b></sub></a><br />
+    </td>
+  </tr>
+</table>
+
 ___
 
 You are a marketing analyst at Books Online, a major online bookstore specializing in used books. As part of your job, 
